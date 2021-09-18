@@ -1,11 +1,12 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 
 import { DiceService } from "../../services/dice.service";
 
 @Component({
   selector: 'ytz-dice',
   templateUrl: './dice.component.html',
-  styleUrls: ['./dice.component.scss']
+  styleUrls: ['./dice.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DiceComponent implements OnInit {
 
