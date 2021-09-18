@@ -1,0 +1,114 @@
+<table>
+  <!-- Upper Section -->
+  <tr>
+    <th>Upper Section</th>
+    <th>How to Score</th>
+    <th>Value</th>
+    <th>Score</th>
+    <th>Option</th>
+  </tr>
+  <tr>
+    <td>Aces</td>
+    <td>Add only Aces</td>
+    <td>{{ acesValue }}</td>
+    <td>{{ acesScore }}</td>
+    <td>
+      <button class="save-score-btn" (click)="saveScore('aces', $event)" [disabled]="addedPoints">Select</button>
+    </td>
+  </tr>
+  <tr>
+    <td>Twos</td>
+    <td>Add only Twos</td>
+    <td>{{ twosValue }}</td>
+    <td>{{ twosScore }}</td>
+    <td>
+      <button class="save-score-btn" (click)="saveScore('twos', $event)" [disabled]="addedPoints">Select</button>
+    </td>
+  </tr>
+  <tr>
+    <td>Threes</td>
+    <td>Add only Threes</td>
+    <td>{{ threesValue }}</td>
+    <td>{{ threesScore }}</td>
+    <td>
+      <button class="save-score-btn" (click)="saveScore('threes', $event)" [disabled]="addedPoints">Select</button>
+    </td>
+  </tr>
+  <tr>
+    <td>Fours</td>
+    <td>Add only Fours</td>
+    <td>{{ foursValue }}</td>
+    <td>{{ foursScore }}</td>
+    <td>
+      <button class="save-score-btn" (click)="saveScore('fours', $event)" [disabled]="addedPoints">Select</button>
+    </td>
+  </tr>
+  <tr>
+    <td>Fives</td>
+    <td>Add only Fives</td>
+    <td>{{ fivesValue }}</td>
+    <td>{{ fivesScore }}</td>
+    <td>
+      <button class="save-score-btn" (click)="saveScore('fives', $event)" [disabled]="addedPoints">Select</button>
+    </td>
+  </tr>
+  <tr>
+    <td>Sixes</td>
+    <td>Add only Sixes</td>
+    <td>{{ sixesValue }}</td>
+    <td>{{ sixesScore }}</td>
+    <td>
+      <button class="save-score-btn" (click)="saveScore('sixes', $event)" [disabled]="addedPoints">Select</button>
+    </td>
+  </tr>
+
+  <!-- Lower Section -->
+  <tr>
+    <th>Lower Section</th>
+  </tr>
+  <tr>
+    <td>3 of a kind</td>
+    <td>Add total of all dice</td>
+    <td>{{ threeKindValue }}</td>
+    <td>{{ threeKindScore }}</td>
+    <td>
+      <button class="save-score-btn" (click)="saveScore('threeKind', $event)" [disabled]="addedPoints">Select</button>
+    </td>
+  </tr>
+  <tr>
+    <td>4 of a kind</td>
+    <td>Add total of all dice</td>
+    <td>{{ fourKindValue }}</td>
+    <td>{{ fourKindScore }}</td>
+    <td>
+      <button class="save-score-btn" (click)="saveScore('fourKind', $event)" [disabled]="addedPoints">Select</button>
+    </td>
+  </tr>
+  <tr>
+    <td>Full House</td>
+    <td>Score 25</td>
+    <td>{{ fullHouseValue }}</td>
+    <td>{{ fullHouseScore }}</td>
+    <td>
+      <button class="save-score-btn" (click)="saveScore('fullHouse', $event)" [disabled]="addedPoints">Select</button>
+    </td>
+  </tr>
+  <tr>
+    <td>Sm. Straight <br/> <span>Sequence of 4</span></td>
+    <td>Score 30</td>
+    <td>{{ smallStraightValue }}</td>
+    <td>{{ smallStraightScore }}</td>
+    <td>
+      <button class="save-score-btn" (click)="saveScore('smallStraight', $event)" [disabled]="addedPoints">Select</button>
+    </td>
+  </tr>
+  <tr>
+    <td>Lg. Straight <br/> <span>Sequence of 5</span></td>
+    <td>Score 40</td>
+    <td>{{ largeStraightValue }}</td>
+    <td>{{ largeStraightScore }}</td>
+    <td>
+      <button class="save-score-btn" (click)="saveScore('largeStraight', $event)" [disabled]="addedPoints">Select</button>
+    </td>
+  </tr>
+</table>

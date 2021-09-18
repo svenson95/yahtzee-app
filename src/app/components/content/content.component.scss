@@ -1,0 +1,53 @@
+
+.content {
+  margin: 10px;
+
+  .hint {
+    text-align: center;
+    color: darkgrey;
+  }
+
+  .dice-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+
+    ytz-dice + ytz-dice {
+      margin-left: 20px;
+    }
+
+    &:not(.is-playing) {
+      opacity: .2;
+    }
+  }
+
+  .table-container {
+    width: fit-content;
+    margin: auto;
+
+    .roll-dice-btn {
+      float: right;
+      margin-top: 20px;
+    }
+  }
+}
+
+/* Dice Animation */
+.shake {
+  animation: shake 0.2s infinite;
+}
+
+@keyframes shake {
+  0% {
+    transform: rotate(8deg);
+  }
+
+  50% {
+    transform: rotate(-8deg);
+  }
+
+  100% {
+    transform: rotate(8deg);
+  }
+}

@@ -1,0 +1,31 @@
+$border: 1px solid black;
+
+table {
+  margin: auto;
+  border-collapse: collapse;
+
+  tr:not(:last-child) {
+    border-bottom: $border;
+  }
+
+  th {
+    text-align: left;
+  }
+
+  td, th {
+    padding: 6px;
+
+    &:not(:last-child) {
+      border-right: $border;
+    }
+  }
+
+  td span {
+    color: darkgrey;
+    font-size: .8rem;
+  }
+
+  button.selected {
+    background: grey;
+  }
+}
