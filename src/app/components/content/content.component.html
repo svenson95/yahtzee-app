@@ -1,14 +1,14 @@
 <div class="content">
   <p class="hint">Click on a dice to hold it through the next roll</p>
   <div class="dice-container" #diceContainer [class.is-playing]="dice.gameStarted">
-    <ytz-dice [diceNumber]="1" [value]="dice.one"></ytz-dice>
-    <ytz-dice [diceNumber]="2" [value]="dice.two" ></ytz-dice>
-    <ytz-dice [diceNumber]="3" [value]="dice.three"></ytz-dice>
-    <ytz-dice [diceNumber]="4" [value]="dice.four"></ytz-dice>
-    <ytz-dice [diceNumber]="5" [value]="dice.five"></ytz-dice>
+    <ytz-dice [diceNumber]="1" [value]="dice.values[0]"></ytz-dice>
+    <ytz-dice [diceNumber]="2" [value]="dice.values[1]" ></ytz-dice>
+    <ytz-dice [diceNumber]="3" [value]="dice.values[2]"></ytz-dice>
+    <ytz-dice [diceNumber]="4" [value]="dice.values[3]"></ytz-dice>
+    <ytz-dice [diceNumber]="5" [value]="dice.values[4]"></ytz-dice>
   </div>
   <div class="table-container">
-    <ytz-table [dices]="[dice.one, dice.two, dice.three, dice.four, dice.five]"></ytz-table>
+    <ytz-table [dices]="diceValues"></ytz-table>
     <button class="roll-dice-btn" (click)="rollDices(diceContainer)">{{ dice.gameStarted ? 'Roll' : 'Play' }}</button>
   </div>
 </div>

@@ -1,6 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 import { DiceService } from "../../services/dice.service";
+import { ScoreService } from "../../services/score.service";
 
 @Component({
   selector: 'ytz-content',
@@ -9,12 +10,16 @@ import { DiceService } from "../../services/dice.service";
 })
 export class ContentComponent implements OnInit {
 
-  @ViewChild('diceContainer')
-  diceContainer: any;
+  @ViewChild('diceContainer', { static: true }) diceContainer!: ElementRef;
+  private SHAKE_DURATION = 1000;
 
-  constructor(public dice: DiceService) { }
+  constructor(public dice: DiceService, private score: ScoreService) { }
 
   ngOnInit(): void {
+  }
+
+  get diceValues() {
+    return [...this.dice.values];
   }
 
   rollDices(dices: Element): void {
@@ -24,6 +29,12 @@ export class ContentComponent implements OnInit {
       const dice = dices.children[i];
       this.animate(dice, i);
     }
+
+    setTimeout(() => {
+      this.updateDiceValues();
+      this.score.addedPoints = undefined;
+      this.score.calculateScores(this.dice.values);
+    }, this.SHAKE_DURATION);
   }
 
   animate(element: Element, index: number) {
@@ -37,10 +48,7 @@ export class ContentComponent implements OnInit {
       element.classList.add('shake');
     }
 
-    setTimeout(() => {
-      element.classList.remove('shake');
-      this.updateDiceValues();
-    }, 1000);
+    setTimeout(() => element.classList.remove('shake'), this.SHAKE_DURATION);
   }
 
   getRandomInt(): number {
@@ -50,10 +58,10 @@ export class ContentComponent implements OnInit {
   }
 
   updateDiceValues(): void {
-    if (!this.dice.holdOne) this.dice.one = this.getRandomInt();
-    if (!this.dice.holdTwo) this.dice.two = this.getRandomInt();
-    if (!this.dice.holdThree) this.dice.three = this.getRandomInt();
-    if (!this.dice.holdFour) this.dice.four = this.getRandomInt();
-    if (!this.dice.holdFive) this.dice.five = this.getRandomInt();
+    if (!this.dice.holdOne) this.dice.values[0] = this.getRandomInt();
+    if (!this.dice.holdTwo) this.dice.values[1] = this.getRandomInt();
+    if (!this.dice.holdThree) this.dice.values[2] = this.getRandomInt();
+    if (!this.dice.holdFour) this.dice.values[3] = this.getRandomInt();
+    if (!this.dice.holdFive) this.dice.values[4] = this.getRandomInt();
   }
 }

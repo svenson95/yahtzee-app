@@ -10,55 +10,67 @@
   <tr>
     <td>Aces</td>
     <td>Add only Aces</td>
-    <td>{{ acesValue }}</td>
-    <td>{{ acesScore }}</td>
+    <td>{{ score.acesValue }}</td>
+    <td>{{ score.acesScore }}</td>
     <td>
-      <button class="save-score-btn" (click)="saveScore('aces', $event)" [disabled]="addedPoints">Select</button>
+      <button class="save-score-btn" (click)="score.savePoints('aces')" [disabled]="score.addedPoints || score.acesValue === 0" [class.selected]="score.addedPoints === 'aces'">
+        Select
+      </button>
     </td>
   </tr>
   <tr>
     <td>Twos</td>
     <td>Add only Twos</td>
-    <td>{{ twosValue }}</td>
-    <td>{{ twosScore }}</td>
+    <td>{{ score.twosValue }}</td>
+    <td>{{ score.twosScore }}</td>
     <td>
-      <button class="save-score-btn" (click)="saveScore('twos', $event)" [disabled]="addedPoints">Select</button>
+      <button class="save-score-btn" (click)="score.savePoints('twos')" [disabled]="score.addedPoints || score.twosValue === 0" [class.selected]="score.addedPoints === 'twos'">
+        Select
+      </button>
     </td>
   </tr>
   <tr>
     <td>Threes</td>
     <td>Add only Threes</td>
-    <td>{{ threesValue }}</td>
-    <td>{{ threesScore }}</td>
+    <td>{{ score.threesValue }}</td>
+    <td>{{ score.threesScore }}</td>
     <td>
-      <button class="save-score-btn" (click)="saveScore('threes', $event)" [disabled]="addedPoints">Select</button>
+      <button class="save-score-btn" (click)="score.savePoints('threes')" [disabled]="score.addedPoints || score.threesValue === 0" [class.selected]="score.addedPoints === 'threes'">
+        Select
+      </button>
     </td>
   </tr>
   <tr>
     <td>Fours</td>
     <td>Add only Fours</td>
-    <td>{{ foursValue }}</td>
-    <td>{{ foursScore }}</td>
+    <td>{{ score.foursValue }}</td>
+    <td>{{ score.foursScore }}</td>
     <td>
-      <button class="save-score-btn" (click)="saveScore('fours', $event)" [disabled]="addedPoints">Select</button>
+      <button class="save-score-btn" (click)="score.savePoints('fours')" [disabled]="score.addedPoints || score.foursValue === 0" [class.selected]="score.addedPoints === 'fours'">
+        Select
+      </button>
     </td>
   </tr>
   <tr>
     <td>Fives</td>
     <td>Add only Fives</td>
-    <td>{{ fivesValue }}</td>
-    <td>{{ fivesScore }}</td>
+    <td>{{ score.fivesValue }}</td>
+    <td>{{ score.fivesScore }}</td>
     <td>
-      <button class="save-score-btn" (click)="saveScore('fives', $event)" [disabled]="addedPoints">Select</button>
+      <button class="save-score-btn" (click)="score.savePoints('fives')" [disabled]="score.addedPoints || score.fivesValue === 0" [class.selected]="score.addedPoints === 'fives'">
+        Select
+      </button>
     </td>
   </tr>
   <tr>
     <td>Sixes</td>
     <td>Add only Sixes</td>
-    <td>{{ sixesValue }}</td>
-    <td>{{ sixesScore }}</td>
+    <td>{{ score.sixesValue }}</td>
+    <td>{{ score.sixesScore }}</td>
     <td>
-      <button class="save-score-btn" (click)="saveScore('sixes', $event)" [disabled]="addedPoints">Select</button>
+      <button class="save-score-btn" (click)="score.savePoints('sixes')" [disabled]="score.addedPoints || score.sixesValue === 0" [class.selected]="score.addedPoints === 'sixes'">
+        Select
+      </button>
     </td>
   </tr>
 
@@ -69,46 +81,56 @@
   <tr>
     <td>3 of a kind</td>
     <td>Add total of all dice</td>
-    <td>{{ threeKindValue }}</td>
-    <td>{{ threeKindScore }}</td>
+    <td>{{ score.threeKindValue }}</td>
+    <td>{{ score.threeKindScore }}</td>
     <td>
-      <button class="save-score-btn" (click)="saveScore('threeKind', $event)" [disabled]="addedPoints">Select</button>
+      <button class="save-score-btn" (click)="score.savePoints('threeKind')" [disabled]="score.addedPoints || score.threeKindValue === 0" [class.selected]="score.addedPoints === 'threeKind'">
+        Select
+      </button>
     </td>
   </tr>
   <tr>
     <td>4 of a kind</td>
     <td>Add total of all dice</td>
-    <td>{{ fourKindValue }}</td>
-    <td>{{ fourKindScore }}</td>
+    <td>{{ score.fourKindValue }}</td>
+    <td>{{ score.fourKindScore }}</td>
     <td>
-      <button class="save-score-btn" (click)="saveScore('fourKind', $event)" [disabled]="addedPoints">Select</button>
+      <button class="save-score-btn" (click)="score.savePoints('fourKind')" [disabled]="score.addedPoints || score.fourKindValue === 0" [class.selected]="score.addedPoints === 'fourKind'">
+        Select
+      </button>
     </td>
   </tr>
   <tr>
     <td>Full House</td>
     <td>Score 25</td>
-    <td>{{ fullHouseValue }}</td>
-    <td>{{ fullHouseScore }}</td>
+    <td>{{ score.fullHouseValue }}</td>
+    <td>{{ score.fullHouseScore }}</td>
     <td>
-      <button class="save-score-btn" (click)="saveScore('fullHouse', $event)" [disabled]="addedPoints">Select</button>
+      <button class="save-score-btn" (click)="score.savePoints('fullHouse')" [disabled]="score.addedPoints || score.fullHouseValue === 0" [class.selected]="score.addedPoints === 'fullHouse'">
+        Select
+      </button>
     </td>
   </tr>
   <tr>
     <td>Sm. Straight <br/> <span>Sequence of 4</span></td>
     <td>Score 30</td>
-    <td>{{ smallStraightValue }}</td>
-    <td>{{ smallStraightScore }}</td>
+    <td>{{ score.smallStraightValue }}</td>
+    <td>{{ score.smallStraightScore }}</td>
     <td>
-      <button class="save-score-btn" (click)="saveScore('smallStraight', $event)" [disabled]="addedPoints">Select</button>
+      <button class="save-score-btn" (click)="score.savePoints('smallStraight')" [disabled]="score.addedPoints || score.smallStraightValue === 0" [class.selected]="score.addedPoints === 'smallStraight'">
+        Select
+      </button>
     </td>
   </tr>
   <tr>
     <td>Lg. Straight <br/> <span>Sequence of 5</span></td>
     <td>Score 40</td>
-    <td>{{ largeStraightValue }}</td>
-    <td>{{ largeStraightScore }}</td>
+    <td>{{ score.largeStraightValue }}</td>
+    <td>{{ score.largeStraightScore }}</td>
     <td>
-      <button class="save-score-btn" (click)="saveScore('largeStraight', $event)" [disabled]="addedPoints">Select</button>
+      <button class="save-score-btn" (click)="score.savePoints('largeStraight')" [disabled]="score.addedPoints || score.largeStraightValue === 0" [class.selected]="score.addedPoints === 'largeStraight'">
+        Select
+      </button>
     </td>
   </tr>
 </table>
