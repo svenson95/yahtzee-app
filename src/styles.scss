@@ -1,5 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
+$btn-animation: box-shadow 200ms ease, color 200ms ease;
+
 body {
   margin: 0;
   font-family: 'Helvetica', sans-serif;
@@ -7,18 +9,29 @@ body {
 
 button {
   cursor: pointer;
+  background: transparent;
   border: none;
-  border-radius: 5px;
-  background: cornflowerblue;
-  color: white;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  border-radius: 6px;
+  box-shadow: 0 0 0 2pt cornflowerblue;
   padding: 5px 10px;
+  color: cornflowerblue;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: $btn-animation;
 
   &:active {
     transform: translateY(1px);
   }
 
+  &:hover {
+    box-shadow: 0 0 0 2pt black;
+    color: black;
+    transition: $btn-animation;
+  }
+
   &:disabled {
-    background: darkgrey;
+    background: lightgrey;
+    box-shadow: none;
+    color: white;
   }
 }

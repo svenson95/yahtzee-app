@@ -1,5 +1,9 @@
 
-.dice.is-holding {
-  outline: 2px solid cornflowerblue;
-  outline-offset: 3px;
+.dice {
+  transition: transform 100ms ease-out;
+
+  &.is-holding {
+    transform: translateY(8px);
+    transition: transform 100ms ease-out;
+  }
 }
