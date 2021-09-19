@@ -21,7 +21,7 @@ const DEFAULT_TABLE = {
 })
 export class ScoreService {
 
-  public addedPoints: string | undefined;
+  public addedPoints: string;
 
   public round: ScoreTable = { ...DEFAULT_TABLE };
   public total: ScoreTable = { ...DEFAULT_TABLE };
@@ -138,7 +138,7 @@ export class ScoreService {
   }
 
   private getDuplicate = (arr: number[]) => {
-    let numberCounter: any = {};
+    let counters = {};
     let occurrences = 0;
     let numberWithMostOccurrences = 0;
 

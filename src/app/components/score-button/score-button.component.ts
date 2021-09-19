@@ -8,8 +8,8 @@ import { ScoreService } from "../../services/score.service";
 })
 export class ScoreButtonComponent implements OnInit {
 
-  @Input() key!: string;
-  @Input() value!: number;
+  @Input() key: string;
+  @Input() value: number;
 
   constructor(public score: ScoreService) { }
 

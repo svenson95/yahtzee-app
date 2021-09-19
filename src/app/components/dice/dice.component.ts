@@ -10,8 +10,8 @@ import { DiceService } from "../../services/dice.service";
 })
 export class DiceComponent implements OnInit {
 
-  @Input() diceNumber!: number;
-  @Input() value!: number;
+  @Input() diceNumber: number;
+  @Input() value: number;
 
   constructor(public dice: DiceService) { }
 

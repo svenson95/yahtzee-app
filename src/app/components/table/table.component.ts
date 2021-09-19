@@ -10,7 +10,7 @@ import { ScoreService } from "../../services/score.service";
 })
 export class TableComponent implements OnInit {
 
-  @Input() dices!: number[];
+  @Input() dices: number[];
 
   constructor(public score: ScoreService) { }
 

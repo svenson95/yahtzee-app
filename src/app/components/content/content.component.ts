@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 import { DiceService } from "../../services/dice.service";
 import { ScoreService } from "../../services/score.service";
@@ -10,7 +10,7 @@ import { ScoreService } from "../../services/score.service";
 })
 export class ContentComponent implements OnInit {
 
-  @ViewChild('diceContainer') diceContainer!: any;
+  @ViewChild('diceContainer') diceContainer: ElementRef;
 
   private SHAKE_DURATION = 1000;
   private isRolling = false;
