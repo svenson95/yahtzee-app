@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { DiceService } from "../../services/dice.service";
 import { ScoreService } from "../../services/score.service";
@@ -10,10 +10,12 @@ import { ScoreService } from "../../services/score.service";
 })
 export class ContentComponent implements OnInit {
 
-  @ViewChild('diceContainer', { static: true }) diceContainer!: ElementRef;
-  private SHAKE_DURATION = 1000;
+  @ViewChild('diceContainer') diceContainer!: any;
 
-  constructor(public dice: DiceService, private score: ScoreService) { }
+  private SHAKE_DURATION = 1000;
+  private isRolling = false;
+
+  constructor(public dice: DiceService, public score: ScoreService) { }
 
   ngOnInit(): void {
   }
@@ -22,8 +24,14 @@ export class ContentComponent implements OnInit {
     return [...this.dice.values];
   }
 
+  startGame() {
+    this.dice.gameStarted = true;
+    this.rollDices(this.diceContainer.nativeElement);
+  }
+
   rollDices(dices: Element): void {
-    if (!this.dice.gameStarted) this.dice.gameStarted = true;
+    if (this.isRolling) return;
+    this.isRolling = true;
 
     for (let i = 0; i < dices.children.length; i++) {
       const dice = dices.children[i];
@@ -31,13 +39,14 @@ export class ContentComponent implements OnInit {
     }
 
     setTimeout(() => {
-      this.updateDiceValues();
+      this.isRolling = false;
+      this.dice.updateDiceValues();
       this.score.addedPoints = undefined;
       this.score.calculateScores(this.dice.values);
     }, this.SHAKE_DURATION);
   }
 
-  animate(element: Element, index: number) {
+  private animate(element: Element, index: number) {
     if (
       (index === 0 && !this.dice.holdOne) ||
       (index === 1 && !this.dice.holdTwo) ||
@@ -49,19 +58,5 @@ export class ContentComponent implements OnInit {
     }
 
     setTimeout(() => element.classList.remove('shake'), this.SHAKE_DURATION);
-  }
-
-  getRandomInt(): number {
-    const min = Math.ceil(1);
-    const max = Math.floor(6);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
-
-  updateDiceValues(): void {
-    if (!this.dice.holdOne) this.dice.values[0] = this.getRandomInt();
-    if (!this.dice.holdTwo) this.dice.values[1] = this.getRandomInt();
-    if (!this.dice.holdThree) this.dice.values[2] = this.getRandomInt();
-    if (!this.dice.holdFour) this.dice.values[3] = this.getRandomInt();
-    if (!this.dice.holdFive) this.dice.values[4] = this.getRandomInt();
   }
 }
