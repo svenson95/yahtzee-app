@@ -30,53 +30,12 @@ export class ScoreService {
 
   calculateScores(dices: number[]): void {
     // Upper section
-    this.round.aces = (
-      dices[0] === 1 ||
-      dices[1] === 1 ||
-      dices[2] === 1 ||
-      dices[3] === 1 ||
-      dices[4] === 1
-    ) ? 1 : 0;
-
-    this.round.twos = (
-      dices[0] === 2 ||
-      dices[1] === 2 ||
-      dices[2] === 2 ||
-      dices[3] === 2 ||
-      dices[4] === 2
-    ) ? 2 : 0
-
-    this.round.threes = (
-      dices[0] === 3 ||
-      dices[1] === 3 ||
-      dices[2] === 3 ||
-      dices[3] === 3 ||
-      dices[4] === 3
-    ) ? 3 : 0
-
-    this.round.fours = (
-      dices[0] === 4 ||
-      dices[1] === 4 ||
-      dices[2] === 4 ||
-      dices[3] === 4 ||
-      dices[4] === 4
-    ) ? 4 : 0
-
-    this.round.fives = (
-      dices[0] === 5 ||
-      dices[1] === 5 ||
-      dices[2] === 5 ||
-      dices[3] === 5 ||
-      dices[4] === 5
-    ) ? 5 : 0
-
-    this.round.sixes = (
-      dices[0] === 6 ||
-      dices[1] === 6 ||
-      dices[2] === 6 ||
-      dices[3] === 6 ||
-      dices[4] === 6
-    ) ? 6 : 0
+    this.round.aces = dices.find(d => d === 1) ? 1 : 0;
+    this.round.twos = dices.find(d => d === 2) ? 2 : 0;
+    this.round.threes = dices.find(d => d === 3) ? 3 : 0;
+    this.round.fours = dices.find(d => d === 4) ? 4 : 0;
+    this.round.fives = dices.find(d => d === 5) ? 5 : 0;
+    this.round.sixes = dices.find(d => d === 6) ? 6 : 0;
 
     // Lower section
     this.round.threeKind = (
@@ -179,24 +138,20 @@ export class ScoreService {
   }
 
   private getDuplicate = (arr: number[]) => {
-    let result: any = {};
-    let max = 0;
-    let mostOccurrencesNumber = 0;
+    let numberCounter: any = {};
+    let occurrences = 0;
+    let numberWithMostOccurrences = 0;
 
-    arr = arr.slice(0); // make a copy of the array
+    arr.forEach(number => {
+      const counter = (numberCounter[number] || 0) + 1;
+      numberCounter[number] = counter;
 
-    for (let i = 0; i < arr.length; ++i) {
-      const val = arr[i];
-      const counter = (result[val] || 0) + 1;
-
-      result[val] = counter;
-
-      if (counter > max) {
-        max = counter;
-        mostOccurrencesNumber = val;
+      if (counter > occurrences) {
+        occurrences = counter;
+        numberWithMostOccurrences = number;
       }
-    }
+    });
 
-    return mostOccurrencesNumber;
+    return numberWithMostOccurrences;
   }
 }

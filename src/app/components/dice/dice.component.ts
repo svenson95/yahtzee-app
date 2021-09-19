@@ -18,16 +18,16 @@ export class DiceComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  image() {
+  get diceImage() {
     return "assets/images/dice-" + this.value + ".png";
   }
 
   holdDice(diceNumber: number) {
     if (!this.dice.gameStarted) return;
-    this.dice.holdDices[diceNumber - 1] = !this.dice.holdDices[diceNumber - 1];
+    this.dice.holdValues[diceNumber - 1] = !this.dice.holdValues[diceNumber - 1];
   }
 
-  isHolding(diceIdx: number) {
-    return this.dice.holdDices[diceIdx - 1]
+  isHolding(diceNumber: number) {
+    return this.dice.holdValues[diceNumber - 1]
   }
 }
