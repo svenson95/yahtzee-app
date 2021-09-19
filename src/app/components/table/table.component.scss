@@ -13,19 +13,22 @@ table {
   }
 
   td, th {
-    padding: 6px;
+    padding: 8px;
 
     &:not(:last-child) {
       border-right: $border;
     }
   }
 
-  td span {
-    color: darkgrey;
-    font-size: .8rem;
-  }
+  td {
 
-  button.selected {
-    background: grey;
+    &:nth-child(3), &:nth-child(4) {
+      text-align: center;
+    }
+
+    span {
+      color: darkgrey;
+      font-size: .8rem;
+    }
   }
 }

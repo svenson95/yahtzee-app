@@ -13,9 +13,7 @@
     <td>{{ score.acesValue }}</td>
     <td>{{ score.acesScore }}</td>
     <td>
-      <button class="save-score-btn" (click)="score.savePoints('aces')" [disabled]="score.addedPoints || score.acesValue === 0" [class.selected]="score.addedPoints === 'aces'">
-        Select
-      </button>
+      <ytz-score-button key="aces" [value]="score.acesValue"></ytz-score-button>
     </td>
   </tr>
   <tr>
@@ -24,9 +22,7 @@
     <td>{{ score.twosValue }}</td>
     <td>{{ score.twosScore }}</td>
     <td>
-      <button class="save-score-btn" (click)="score.savePoints('twos')" [disabled]="score.addedPoints || score.twosValue === 0" [class.selected]="score.addedPoints === 'twos'">
-        Select
-      </button>
+      <ytz-score-button key="twos" [value]="score.twosValue"></ytz-score-button>
     </td>
   </tr>
   <tr>
@@ -35,9 +31,7 @@
     <td>{{ score.threesValue }}</td>
     <td>{{ score.threesScore }}</td>
     <td>
-      <button class="save-score-btn" (click)="score.savePoints('threes')" [disabled]="score.addedPoints || score.threesValue === 0" [class.selected]="score.addedPoints === 'threes'">
-        Select
-      </button>
+      <ytz-score-button key="threes" [value]="score.threesValue"></ytz-score-button>
     </td>
   </tr>
   <tr>
@@ -46,9 +40,7 @@
     <td>{{ score.foursValue }}</td>
     <td>{{ score.foursScore }}</td>
     <td>
-      <button class="save-score-btn" (click)="score.savePoints('fours')" [disabled]="score.addedPoints || score.foursValue === 0" [class.selected]="score.addedPoints === 'fours'">
-        Select
-      </button>
+      <ytz-score-button key="fours" [value]="score.foursValue"></ytz-score-button>
     </td>
   </tr>
   <tr>
@@ -57,9 +49,7 @@
     <td>{{ score.fivesValue }}</td>
     <td>{{ score.fivesScore }}</td>
     <td>
-      <button class="save-score-btn" (click)="score.savePoints('fives')" [disabled]="score.addedPoints || score.fivesValue === 0" [class.selected]="score.addedPoints === 'fives'">
-        Select
-      </button>
+      <ytz-score-button key="fives" [value]="score.fivesValue"></ytz-score-button>
     </td>
   </tr>
   <tr>
@@ -68,9 +58,7 @@
     <td>{{ score.sixesValue }}</td>
     <td>{{ score.sixesScore }}</td>
     <td>
-      <button class="save-score-btn" (click)="score.savePoints('sixes')" [disabled]="score.addedPoints || score.sixesValue === 0" [class.selected]="score.addedPoints === 'sixes'">
-        Select
-      </button>
+      <ytz-score-button key="sixes" [value]="score.sixesValue"></ytz-score-button>
     </td>
   </tr>
 
@@ -84,9 +72,7 @@
     <td>{{ score.threeKindValue }}</td>
     <td>{{ score.threeKindScore }}</td>
     <td>
-      <button class="save-score-btn" (click)="score.savePoints('threeKind')" [disabled]="score.addedPoints || score.threeKindValue === 0" [class.selected]="score.addedPoints === 'threeKind'">
-        Select
-      </button>
+      <ytz-score-button key="threeKind" [value]="score.threeKindValue"></ytz-score-button>
     </td>
   </tr>
   <tr>
@@ -95,42 +81,34 @@
     <td>{{ score.fourKindValue }}</td>
     <td>{{ score.fourKindScore }}</td>
     <td>
-      <button class="save-score-btn" (click)="score.savePoints('fourKind')" [disabled]="score.addedPoints || score.fourKindValue === 0" [class.selected]="score.addedPoints === 'fourKind'">
-        Select
-      </button>
+      <ytz-score-button key="fourKind" [value]="score.fourKindValue"></ytz-score-button>
     </td>
   </tr>
   <tr>
-    <td>Full House</td>
+    <td>Full House <br/> <span>5 of a kind</span></td>
     <td>Score 25</td>
     <td>{{ score.fullHouseValue }}</td>
     <td>{{ score.fullHouseScore }}</td>
     <td>
-      <button class="save-score-btn" (click)="score.savePoints('fullHouse')" [disabled]="score.addedPoints || score.fullHouseValue === 0" [class.selected]="score.addedPoints === 'fullHouse'">
-        Select
-      </button>
+      <ytz-score-button key="fullHouse" [value]="score.fullHouseValue"></ytz-score-button>
     </td>
   </tr>
   <tr>
-    <td>Sm. Straight <br/> <span>Sequence of 4</span></td>
+    <td>Small Straight <br/> <span>Sequence of 4</span></td>
     <td>Score 30</td>
     <td>{{ score.smallStraightValue }}</td>
     <td>{{ score.smallStraightScore }}</td>
     <td>
-      <button class="save-score-btn" (click)="score.savePoints('smallStraight')" [disabled]="score.addedPoints || score.smallStraightValue === 0" [class.selected]="score.addedPoints === 'smallStraight'">
-        Select
-      </button>
+      <ytz-score-button key="smallStraight" [value]="score.smallStraightValue"></ytz-score-button>
     </td>
   </tr>
   <tr>
-    <td>Lg. Straight <br/> <span>Sequence of 5</span></td>
+    <td>Large Straight <br/> <span>Sequence of 5</span></td>
     <td>Score 40</td>
     <td>{{ score.largeStraightValue }}</td>
     <td>{{ score.largeStraightScore }}</td>
     <td>
-      <button class="save-score-btn" (click)="score.savePoints('largeStraight')" [disabled]="score.addedPoints || score.largeStraightValue === 0" [class.selected]="score.addedPoints === 'largeStraight'">
-        Select
-      </button>
+      <ytz-score-button key="largeStraight" [value]="score.largeStraightValue"></ytz-score-button>
     </td>
   </tr>
 </table>

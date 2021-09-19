@@ -4,17 +4,13 @@ import { CommonModule } from "@angular/common";
 
 import { AppComponent } from './app.component';
 
-import { HeaderModule } from "./components/header/header.module";
 import { ContentModule } from "./components/content/content.module";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     CommonModule,
-    HeaderModule,
     ContentModule
   ],
   providers: [],
