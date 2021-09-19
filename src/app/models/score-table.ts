@@ -1,13 +1,13 @@
-export interface ScoreTable {
-  aces: number;
-  twos: number;
-  threes: number;
-  fours: number;
-  fives: number;
-  sixes: number;
-  threeKind: number;
-  fourKind: number;
-  fullHouse: number;
-  smallStraight: number;
-  largeStraight: number;
+export class ScoreTable {
+  aces = 0;
+  twos = 0;
+  threes = 0;
+  fours = 0;
+  fives = 0;
+  sixes = 0;
+  threeKind = 0;
+  fourKind = 0;
+  fullHouse = 0;
+  smallStraight = 0;
+  largeStraight = 0;
 }

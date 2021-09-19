@@ -2,20 +2,6 @@ import { Injectable } from '@angular/core';
 
 import { ScoreTable } from "../models/score-table";
 
-const DEFAULT_TABLE = {
-  aces: 0,
-  twos: 0,
-  threes: 0,
-  fours: 0,
-  fives: 0,
-  sixes: 0,
-  threeKind: 0,
-  fourKind: 0,
-  fullHouse: 0,
-  smallStraight: 0,
-  largeStraight: 0
-}
-
 @Injectable({
   providedIn: 'root'
 })
@@ -23,8 +9,8 @@ export class ScoreService {
 
   public addedPoints: string;
 
-  public round: ScoreTable = { ...DEFAULT_TABLE };
-  public total: ScoreTable = { ...DEFAULT_TABLE };
+  public round = new ScoreTable();
+  public total = new ScoreTable();
 
   constructor() { }
 
@@ -143,8 +129,8 @@ export class ScoreService {
     let numberWithMostOccurrences = 0;
 
     arr.forEach(number => {
-      const counter = (numberCounter[number] || 0) + 1;
-      numberCounter[number] = counter;
+      const counter = (counters[number] || 0) + 1;
+      counters[number] = counter;
 
       if (counter > occurrences) {
         occurrences = counter;
