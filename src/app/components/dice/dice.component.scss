@@ -1,5 +1,6 @@
 
 .dice {
+  cursor: pointer;
   transition: transform 100ms ease-out;
 
   &.is-holding {

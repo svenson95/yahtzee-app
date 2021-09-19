@@ -3,8 +3,9 @@
   margin: 10px;
 
   .hint {
-    text-align: center;
     color: darkgrey;
+    font-size: .9rem;
+    text-align: center;
   }
 
   .dice-container {
@@ -22,15 +23,14 @@
     }
   }
 
+  .btn {
+    display: flex;
+    margin: 0 auto 20px;
+  }
+
   .table-container {
     width: fit-content;
     margin: auto;
-
-    .btn {
-      float: right;
-      margin-top: 20px;
-      margin-right: 9px;
-    }
   }
 }
 
