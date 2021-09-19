@@ -1,5 +1,21 @@
 import { Injectable } from '@angular/core';
 
+import { ScoreTable } from "../models/score-table";
+
+const DEFAULT_TABLE = {
+  aces: 0,
+  twos: 0,
+  threes: 0,
+  fours: 0,
+  fives: 0,
+  sixes: 0,
+  threeKind: 0,
+  fourKind: 0,
+  fullHouse: 0,
+  smallStraight: 0,
+  largeStraight: 0
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -7,37 +23,14 @@ export class ScoreService {
 
   public addedPoints: string | undefined;
 
-  // Round score
-  public acesValue = 0;
-  public twosValue = 0;
-  public threesValue = 0;
-  public foursValue = 0;
-  public fivesValue = 0;
-  public sixesValue = 0;
-  public threeKindValue = 0;
-  public fourKindValue = 0;
-  public fullHouseValue = 0;
-  public smallStraightValue = 0;
-  public largeStraightValue = 0;
-
-  // Total score
-  public acesScore = 0;
-  public twosScore = 0;
-  public threesScore = 0;
-  public foursScore = 0;
-  public fivesScore = 0;
-  public sixesScore = 0;
-  public threeKindScore = 0;
-  public fourKindScore = 0;
-  public fullHouseScore = 0;
-  public smallStraightScore = 0;
-  public largeStraightScore = 0;
+  public round: ScoreTable = { ...DEFAULT_TABLE };
+  public total: ScoreTable = { ...DEFAULT_TABLE };
 
   constructor() { }
 
   calculateScores(dices: number[]): void {
     // Upper section
-    this.acesValue = (
+    this.round.aces = (
       dices[0] === 1 ||
       dices[1] === 1 ||
       dices[2] === 1 ||
@@ -45,7 +38,7 @@ export class ScoreService {
       dices[4] === 1
     ) ? 1 : 0;
 
-    this.twosValue = (
+    this.round.twos = (
       dices[0] === 2 ||
       dices[1] === 2 ||
       dices[2] === 2 ||
@@ -53,7 +46,7 @@ export class ScoreService {
       dices[4] === 2
     ) ? 2 : 0
 
-    this.threesValue = (
+    this.round.threes = (
       dices[0] === 3 ||
       dices[1] === 3 ||
       dices[2] === 3 ||
@@ -61,7 +54,7 @@ export class ScoreService {
       dices[4] === 3
     ) ? 3 : 0
 
-    this.foursValue = (
+    this.round.fours = (
       dices[0] === 4 ||
       dices[1] === 4 ||
       dices[2] === 4 ||
@@ -69,7 +62,7 @@ export class ScoreService {
       dices[4] === 4
     ) ? 4 : 0
 
-    this.fivesValue = (
+    this.round.fives = (
       dices[0] === 5 ||
       dices[1] === 5 ||
       dices[2] === 5 ||
@@ -77,7 +70,7 @@ export class ScoreService {
       dices[4] === 5
     ) ? 5 : 0
 
-    this.sixesValue = (
+    this.round.sixes = (
       dices[0] === 6 ||
       dices[1] === 6 ||
       dices[2] === 6 ||
@@ -86,7 +79,7 @@ export class ScoreService {
     ) ? 6 : 0
 
     // Lower section
-    this.threeKindValue = (
+    this.round.threeKind = (
       dices.filter(d => d === 1).length === 3 ||
       dices.filter(d => d === 2).length === 3 ||
       dices.filter(d => d === 3).length === 3 ||
@@ -95,7 +88,7 @@ export class ScoreService {
       dices.filter(d => d === 6).length === 3
     ) ? (this.getDuplicate(dices) * 3) : 0;
 
-    this.fourKindValue = (
+    this.round.fourKind = (
       dices.filter(d => d === 1).length === 4 ||
       dices.filter(d => d === 2).length === 4 ||
       dices.filter(d => d === 3).length === 4 ||
@@ -104,7 +97,7 @@ export class ScoreService {
       dices.filter(d => d === 6).length === 4
     ) ? (this.getDuplicate(dices) * 4) : 0;
 
-    this.fullHouseValue = (
+    this.round.fullHouse = (
       dices.filter(d => d === 1).length === 5 ||
       dices.filter(d => d === 2).length === 5 ||
       dices.filter(d => d === 3).length === 5 ||
@@ -113,7 +106,7 @@ export class ScoreService {
       dices.filter(d => d === 6).length === 5
     ) ? 25 : 0;
 
-    this.smallStraightValue = (
+    this.round.smallStraight = (
       (
         dices.find(d => d === 1) &&
         dices.find(d => d === 2) &&
@@ -134,7 +127,7 @@ export class ScoreService {
       )
     ) ? 30 : 0;
 
-    this.largeStraightValue = (
+    this.round.largeStraight = (
       (
         dices.find(d => d === 1) &&
         dices.find(d => d === 2) &&
@@ -158,30 +151,30 @@ export class ScoreService {
 
     // Upper section
     if (key === 'aces') {
-      this.acesScore += this.acesValue;
+      this.total.aces += this.round.aces;
     } else if (key === 'twos') {
-      this.twosScore += this.twosValue;
+      this.total.twos += this.round.twos;
     } else if (key === 'threes') {
-      this.threesScore += this.threesValue;
+      this.total.threes += this.round.threes;
     } else if (key === 'fours') {
-      this.foursScore += this.foursValue;
+      this.total.fours += this.round.fours;
     } else if (key === 'fives') {
-      this.fivesScore += this.fivesValue;
+      this.total.fives += this.round.fives;
     } else if (key === 'sixes') {
-      this.sixesScore += this.sixesValue;
+      this.total.sixes += this.round.sixes;
     }
 
     // Lower section
     if (key === 'threeKind') {
-      this.threeKindScore += this.threeKindValue;
+      this.total.threeKind += this.round.threeKind;
     } else if (key === 'fourKind') {
-      this.fourKindScore += this.fourKindValue;
+      this.total.fourKind += this.round.fourKind;
     } else if (key === 'fullHouse') {
-      this.fullHouseScore += this.fullHouseValue;
+      this.total.fullHouse += this.round.fullHouse;
     } else if (key === 'smallStraight') {
-      this.smallStraightScore += this.smallStraightValue;
+      this.total.smallStraight += this.round.smallStraight;
     } else if (key === 'largeStraight') {
-      this.largeStraightScore += this.largeStraightValue;
+      this.total.largeStraight += this.round.largeStraight;
     }
   }
 
