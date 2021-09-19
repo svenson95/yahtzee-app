@@ -33,22 +33,3 @@
     margin: auto;
   }
 }
-
-/* Dice Animation */
-.shake {
-  animation: shake 0.2s infinite;
-}
-
-@keyframes shake {
-  0% {
-    transform: rotate(8deg);
-  }
-
-  50% {
-    transform: rotate(-8deg);
-  }
-
-  100% {
-    transform: rotate(8deg);
-  }
-}

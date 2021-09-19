@@ -8,7 +8,7 @@
     <ytz-dice [diceNumber]="5" [value]="dice.values[4]"></ytz-dice>
   </div>
   <button class="btn start-game" (click)="startGame()" *ngIf="!dice.gameStarted">Play</button>
-  <button class="btn roll-dice" (click)="rollDices(diceContainer)" *ngIf="dice.gameStarted">Roll</button>
+  <button class="btn roll-dice" (click)="dice.rollDices(diceContainer)" *ngIf="dice.gameStarted">Roll</button>
   <div class="table-container">
     <ytz-table [dices]="diceValues"></ytz-table>
   </div>

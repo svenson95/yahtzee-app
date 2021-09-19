@@ -1,7 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 import { DiceService } from "../../services/dice.service";
-import { ScoreService } from "../../services/score.service";
 
 @Component({
   selector: 'ytz-content',
@@ -12,10 +11,7 @@ export class ContentComponent implements OnInit {
 
   @ViewChild('diceContainer') diceContainer: ElementRef;
 
-  private SHAKE_DURATION = 1000;
-  private isRolling = false;
-
-  constructor(public dice: DiceService, public score: ScoreService) { }
+  constructor(public dice: DiceService) { }
 
   ngOnInit(): void {
   }
@@ -26,31 +22,6 @@ export class ContentComponent implements OnInit {
 
   startGame() {
     this.dice.gameStarted = true;
-    this.rollDices(this.diceContainer.nativeElement);
-  }
-
-  rollDices(dices: Element): void {
-    if (this.isRolling) return;
-    this.isRolling = true;
-
-    for (let i = 0; i < dices.children.length; i++) {
-      const dice = dices.children[i];
-      this.animate(dice, i);
-    }
-
-    setTimeout(() => {
-      this.isRolling = false;
-      this.dice.updateDiceValues();
-      this.score.addedPoints = undefined;
-      this.score.calculateScores(this.dice.values);
-    }, this.SHAKE_DURATION);
-  }
-
-  private animate(element: Element, index: number) {
-    if (!this.dice.holdValues[index]) {
-      element.classList.add('shake');
-    }
-
-    setTimeout(() => element.classList.remove('shake'), this.SHAKE_DURATION);
+    this.dice.rollDices(this.diceContainer.nativeElement);
   }
 }
