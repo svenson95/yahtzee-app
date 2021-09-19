@@ -7,12 +7,7 @@ export class DiceService {
 
   public gameStarted = false;
   public values: number[] = [1, 2, 3, 4, 5];
-
-  public holdOne = false;
-  public holdTwo = false;
-  public holdThree = false;
-  public holdFour = false;
-  public holdFive = false;
+  public holdDices: boolean[] = [false, false, false, false, false];
 
   constructor() { }
 
@@ -23,10 +18,13 @@ export class DiceService {
   }
 
   updateDiceValues(): void {
-    if (!this.holdOne) this.values[0] = this.getRandomInt();
-    if (!this.holdTwo) this.values[1] = this.getRandomInt();
-    if (!this.holdThree) this.values[2] = this.getRandomInt();
-    if (!this.holdFour) this.values[3] = this.getRandomInt();
-    if (!this.holdFive) this.values[4] = this.getRandomInt();
+    if (this.holdDices.length === 0) {
+      this.values = new Array(5).fill(this.getRandomInt());
+    } else {
+      this.values.forEach((value, index) => {
+        if (this.holdDices[index]) return;
+        this.values[index] = this.getRandomInt();
+      });
+    }
   }
 }

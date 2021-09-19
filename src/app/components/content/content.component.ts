@@ -47,13 +47,7 @@ export class ContentComponent implements OnInit {
   }
 
   private animate(element: Element, index: number) {
-    if (
-      (index === 0 && !this.dice.holdOne) ||
-      (index === 1 && !this.dice.holdTwo) ||
-      (index === 2 && !this.dice.holdThree) ||
-      (index === 3 && !this.dice.holdFour) ||
-      (index === 4 && !this.dice.holdFive)
-    ) {
+    if (!this.dice.holdDices[index]) {
       element.classList.add('shake');
     }
 

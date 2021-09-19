@@ -22,23 +22,12 @@ export class DiceComponent implements OnInit {
     return "assets/images/dice-" + this.value + ".png";
   }
 
-  holdDice(value: number) {
+  holdDice(diceNumber: number) {
     if (!this.dice.gameStarted) return;
-
-    if (value === 1) this.dice.holdOne = !this.dice.holdOne;
-    if (value === 2) this.dice.holdTwo = !this.dice.holdTwo;
-    if (value === 3) this.dice.holdThree = !this.dice.holdThree;
-    if (value === 4) this.dice.holdFour = !this.dice.holdFour;
-    if (value === 5) this.dice.holdFive = !this.dice.holdFive;
+    this.dice.holdDices[diceNumber - 1] = !this.dice.holdDices[diceNumber - 1];
   }
 
-  isHolding() {
-    return (
-      (this.diceNumber === 1 && this.dice.holdOne) ||
-      (this.diceNumber === 2 && this.dice.holdTwo) ||
-      (this.diceNumber === 3 && this.dice.holdThree) ||
-      (this.diceNumber === 4 && this.dice.holdFour) ||
-      (this.diceNumber === 5 && this.dice.holdFive)
-    )
+  isHolding(diceIdx: number) {
+    return this.dice.holdDices[diceIdx - 1]
   }
 }
