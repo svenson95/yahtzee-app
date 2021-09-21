@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "yatzee-app": {
+    "yahtzee-app": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -39,7 +39,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/yatzee-app",
+            "outputPath": "dist/yahtzee-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -91,10 +91,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "yatzee-app:build:production"
+              "browserTarget": "yahtzee-app:build:production"
             },
             "development": {
-              "browserTarget": "yatzee-app:build:development"
+              "browserTarget": "yahtzee-app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -102,7 +102,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "yatzee-app:build"
+            "browserTarget": "yahtzee-app:build"
           }
         },
         "test": {
@@ -126,5 +126,5 @@
       }
     }
   },
-  "defaultProject": "yatzee-app"
+  "defaultProject": "yahtzee-app"
 }
