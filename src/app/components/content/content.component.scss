@@ -31,5 +31,9 @@
   .table-container {
     width: fit-content;
     margin: auto;
+
+    ytz-table {
+      display: flex;
+    };
   }
 }

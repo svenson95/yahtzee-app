@@ -1,4 +1,4 @@
-$border: 1px solid black;
+$border: 1px solid lightgrey;
 
 table {
   margin: auto;
@@ -31,4 +31,8 @@ table {
       font-size: .8rem;
     }
   }
+}
+
+table:nth-child(2) {
+  margin-top: 0;
 }
