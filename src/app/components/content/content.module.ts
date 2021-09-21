@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { ContentComponent } from "./content.component";
 
-import { DiceModule } from "../dice/dice.module";
-import { TableModule } from "../table/table.module";
+import { DiceModule } from "src/app/components/dice/dice.module";
+import { TableModule } from "src/app/components/table/table.module";
 
 
 @NgModule({

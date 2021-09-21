@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { DiceComponent } from "./dice.component";
+import { DiceComponent } from "src/app/components/dice/dice.component";
 
 
 @NgModule({
