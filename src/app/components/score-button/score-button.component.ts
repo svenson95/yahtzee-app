@@ -15,9 +15,13 @@ export class ScoreButtonComponent implements OnInit {
   @Input() disabled: boolean;
 
   constructor(
-    @Inject(ScoreService) public score: ScoreService,
+    @Inject(ScoreService) private score: ScoreService,
     @Inject(RoundService) private round: RoundService
   ) { }
+
+  get addedPoints() {
+    return this.score.addedPoints;
+  }
 
   ngOnInit(): void {
   }

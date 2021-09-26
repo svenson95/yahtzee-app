@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class RoundService {
 
   public current = 1;
-  public try = 0;
+  public tryCounter = 0;
 
   constructor() { }
 
@@ -19,10 +19,10 @@ export class RoundService {
   }
 
   nextTry() {
-    this.try += 1;
+    this.tryCounter += 1;
   }
 
   resetTry() {
-    this.try = 0;
+    this.tryCounter = 0;
   }
 }

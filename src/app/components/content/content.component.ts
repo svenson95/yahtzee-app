@@ -24,6 +24,14 @@ export class ContentComponent implements OnInit {
     return [...this.dice.values];
   }
 
+  get gameStarted() {
+    return this.dice.gameStarted;
+  }
+
+  get tryCounter() {
+    return this.round.tryCounter;
+  }
+
   onPlay() {
     this.dice.gameStarted = true;
     this.round.nextTry();
