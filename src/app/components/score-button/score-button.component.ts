@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 
 import { ScoreService } from "../../services/score.service";
 import { RoundService } from "../../services/round.service";
@@ -14,7 +14,10 @@ export class ScoreButtonComponent implements OnInit {
   @Input() value: number;
   @Input() disabled: boolean;
 
-  constructor(public score: ScoreService, private round: RoundService) { }
+  constructor(
+    @Inject(ScoreService) public score: ScoreService,
+    @Inject(RoundService) private round: RoundService
+  ) { }
 
   ngOnInit(): void {
   }

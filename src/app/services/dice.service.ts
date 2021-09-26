@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { ScoreService } from "./score.service";
 
 @Injectable({
@@ -11,7 +11,7 @@ export class DiceService {
   public values: number[] = [1, 2, 3, 4, 5];
   public holdValues: boolean[] = [false, false, false, false, false];
 
-  constructor(private score: ScoreService) { }
+  constructor(@Inject(ScoreService) private score: ScoreService) { }
 
   getRandomInt(): number {
     const min = Math.ceil(1);

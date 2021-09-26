@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, Input, OnInit } from '@angular/core';
 
 import { DiceService } from "../../services/dice.service";
 
@@ -13,7 +13,7 @@ export class DiceComponent implements OnInit {
   @Input() diceNumber: number;
   @Input() value: number;
 
-  constructor(public dice: DiceService) { }
+  constructor(@Inject(DiceService) public dice: DiceService) { }
 
   ngOnInit(): void {
   }
