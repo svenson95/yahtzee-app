@@ -16,7 +16,7 @@ button {
   letter-spacing: 1px;
   transition: filter 200ms ease;
 
-  &:active {
+  &:active:not(:disabled) {
     transform: translateY(1px);
   }
 
