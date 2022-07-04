@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Inject, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 import { DiceService } from '../../services/dice.service';
 
@@ -12,7 +12,7 @@ export class DiceComponent {
   @Input() diceNumber: number;
   @Input() value: number;
 
-  constructor(@Inject(DiceService) public dice: DiceService) {}
+  constructor(public dice: DiceService) {}
 
   get diceImage() {
     return 'assets/images/dice-' + this.value + '.png';

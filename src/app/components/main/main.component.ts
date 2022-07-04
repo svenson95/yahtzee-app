@@ -1,4 +1,4 @@
-import { Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 
 import { DiceService } from '../../services/dice.service';
 import { RoundService } from '../../services/round.service';
@@ -11,7 +11,7 @@ import { RoundService } from '../../services/round.service';
 export class MainComponent {
   @ViewChild('diceContainer') diceContainer: ElementRef;
 
-  constructor(@Inject(DiceService) private dice: DiceService, @Inject(RoundService) private round: RoundService) {}
+  constructor(private dice: DiceService, private round: RoundService) {}
 
   get diceValues() {
     return [...this.dice.values];

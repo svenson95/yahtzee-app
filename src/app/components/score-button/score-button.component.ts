@@ -1,4 +1,4 @@
-import { Component, Inject, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { ScoreService } from '../../services/score.service';
 import { RoundService } from '../../services/round.service';
@@ -13,7 +13,7 @@ export class ScoreButtonComponent {
   @Input() value: number;
   @Input() disabled: boolean;
 
-  constructor(@Inject(ScoreService) private score: ScoreService, @Inject(RoundService) private round: RoundService) {}
+  constructor(private score: ScoreService, private round: RoundService) {}
 
   get addedPoints() {
     return this.score.addedPoints;
