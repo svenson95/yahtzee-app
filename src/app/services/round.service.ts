@@ -1,14 +1,12 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class RoundService {
-
   public current = 1;
-  public tryCounter = 0;
 
-  constructor() { }
+  public tryCounter = 0;
 
   nextRound() {
     this.current += 1;
