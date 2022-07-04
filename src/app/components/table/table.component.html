@@ -1,123 +1,121 @@
-<table>
-  <!-- Upper Section -->
-  <tr>
-    <th>Upper Section</th>
-    <th>How to Score</th>
-    <th>Value</th>
-    <th>Score</th>
-    <th>Option</th>
-  </tr>
-  <tr>
-    <td>Aces</td>
-    <td>Add only Aces</td>
-    <td>{{ score.round.aces }}</td>
-    <td>{{ score.total.aces }}</td>
-    <td>
-      <ytz-score-button key="aces" [value]="score.round.aces"></ytz-score-button>
-    </td>
-  </tr>
-  <tr>
-    <td>Twos</td>
-    <td>Add only Twos</td>
-    <td>{{ score.round.twos }}</td>
-    <td>{{ score.total.twos }}</td>
-    <td>
-      <ytz-score-button key="twos" [value]="score.round.twos"></ytz-score-button>
-    </td>
-  </tr>
-  <tr>
-    <td>Threes</td>
-    <td>Add only Threes</td>
-    <td>{{ score.round.threes }}</td>
-    <td>{{ score.total.threes }}</td>
-    <td>
-      <ytz-score-button key="threes" [value]="score.round.threes"></ytz-score-button>
-    </td>
-  </tr>
-  <tr>
-    <td>Fours</td>
-    <td>Add only Fours</td>
-    <td>{{ score.round.fours }}</td>
-    <td>{{ score.total.fours }}</td>
-    <td>
-      <ytz-score-button key="fours" [value]="score.round.fours"></ytz-score-button>
-    </td>
-  </tr>
-  <tr>
-    <td>Fives</td>
-    <td>Add only Fives</td>
-    <td>{{ score.round.fives }}</td>
-    <td>{{ score.total.fives }}</td>
-    <td>
-      <ytz-score-button key="fives" [value]="score.round.fives"></ytz-score-button>
-    </td>
-  </tr>
-  <tr>
-    <td>Sixes</td>
-    <td>Add only Sixes</td>
-    <td>{{ score.round.sixes }}</td>
-    <td>{{ score.total.sixes }}</td>
-    <td>
-      <ytz-score-button key="sixes" [value]="score.round.sixes"></ytz-score-button>
-    </td>
-  </tr>
+<!-- Upper Section -->
+<tr>
+  <th>Upper Section</th>
+  <th>How to Score</th>
+  <th>Value</th>
+  <th>Score</th>
+  <th>Option</th>
+</tr>
+<tr>
+  <td>Aces</td>
+  <td>Add only Aces</td>
+  <td>{{ score.round.aces }}</td>
+  <td>{{ score.total.aces }}</td>
+  <td>
+    <ytz-score-button key="aces" [value]="score.round.aces"></ytz-score-button>
+  </td>
+</tr>
+<tr>
+  <td>Twos</td>
+  <td>Add only Twos</td>
+  <td>{{ score.round.twos }}</td>
+  <td>{{ score.total.twos }}</td>
+  <td>
+    <ytz-score-button key="twos" [value]="score.round.twos"></ytz-score-button>
+  </td>
+</tr>
+<tr>
+  <td>Threes</td>
+  <td>Add only Threes</td>
+  <td>{{ score.round.threes }}</td>
+  <td>{{ score.total.threes }}</td>
+  <td>
+    <ytz-score-button key="threes" [value]="score.round.threes"></ytz-score-button>
+  </td>
+</tr>
+<tr>
+  <td>Fours</td>
+  <td>Add only Fours</td>
+  <td>{{ score.round.fours }}</td>
+  <td>{{ score.total.fours }}</td>
+  <td>
+    <ytz-score-button key="fours" [value]="score.round.fours"></ytz-score-button>
+  </td>
+</tr>
+<tr>
+  <td>Fives</td>
+  <td>Add only Fives</td>
+  <td>{{ score.round.fives }}</td>
+  <td>{{ score.total.fives }}</td>
+  <td>
+    <ytz-score-button key="fives" [value]="score.round.fives"></ytz-score-button>
+  </td>
+</tr>
+<tr>
+  <td>Sixes</td>
+  <td>Add only Sixes</td>
+  <td>{{ score.round.sixes }}</td>
+  <td>{{ score.total.sixes }}</td>
+  <td>
+    <ytz-score-button key="sixes" [value]="score.round.sixes"></ytz-score-button>
+  </td>
+</tr>
 
-  <!-- Lower Section -->
-  <tr>
-    <th>Lower Section</th>
-  </tr>
-  <tr>
-    <td>3 of a kind</td>
-    <td>Add total of all dice</td>
-    <td>{{ score.round.threeKind }}</td>
-    <td>{{ score.total.threeKind }}</td>
-    <td>
-      <ytz-score-button key="threeKind" [value]="score.round.threeKind"></ytz-score-button>
-    </td>
-  </tr>
-  <tr>
-    <td>4 of a kind</td>
-    <td>Add total of all dice</td>
-    <td>{{ score.round.fourKind }}</td>
-    <td>{{ score.total.fourKind }}</td>
-    <td>
-      <ytz-score-button key="fourKind" [value]="score.round.fourKind"></ytz-score-button>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      Full House <br />
-      <small>5 of a kind</small>
-    </td>
-    <td>Score 25</td>
-    <td>{{ score.round.fullHouse }}</td>
-    <td>{{ score.total.fullHouse }}</td>
-    <td>
-      <ytz-score-button key="fullHouse" [value]="score.round.fullHouse"></ytz-score-button>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      Small Straight <br />
-      <small>Sequence of 4</small>
-    </td>
-    <td>Score 30</td>
-    <td>{{ score.round.smallStraight }}</td>
-    <td>{{ score.total.smallStraight }}</td>
-    <td>
-      <ytz-score-button key="smallStraight" [value]="score.round.smallStraight"></ytz-score-button>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      Large Straight <br />
-      <small>Sequence of 5</small>
-    </td>
-    <td>Score 40</td>
-    <td>{{ score.round.largeStraight }}</td>
-    <td>{{ score.total.largeStraight }}</td>
-    <td>
-      <ytz-score-button key="largeStraight" [value]="score.round.largeStraight"></ytz-score-button>
-    </td>
-  </tr>
-</table>
+<!-- Lower Section -->
+<tr>
+  <th>Lower Section</th>
+</tr>
+<tr>
+  <td>3 of a kind</td>
+  <td>Add total of all dice</td>
+  <td>{{ score.round.threeKind }}</td>
+  <td>{{ score.total.threeKind }}</td>
+  <td>
+    <ytz-score-button key="threeKind" [value]="score.round.threeKind"></ytz-score-button>
+  </td>
+</tr>
+<tr>
+  <td>4 of a kind</td>
+  <td>Add total of all dice</td>
+  <td>{{ score.round.fourKind }}</td>
+  <td>{{ score.total.fourKind }}</td>
+  <td>
+    <ytz-score-button key="fourKind" [value]="score.round.fourKind"></ytz-score-button>
+  </td>
+</tr>
+<tr>
+  <td>
+    Full House <br />
+    <small>5 of a kind</small>
+  </td>
+  <td>Score 25</td>
+  <td>{{ score.round.fullHouse }}</td>
+  <td>{{ score.total.fullHouse }}</td>
+  <td>
+    <ytz-score-button key="fullHouse" [value]="score.round.fullHouse"></ytz-score-button>
+  </td>
+</tr>
+<tr>
+  <td>
+    Small Straight <br />
+    <small>Sequence of 4</small>
+  </td>
+  <td>Score 30</td>
+  <td>{{ score.round.smallStraight }}</td>
+  <td>{{ score.total.smallStraight }}</td>
+  <td>
+    <ytz-score-button key="smallStraight" [value]="score.round.smallStraight"></ytz-score-button>
+  </td>
+</tr>
+<tr>
+  <td>
+    Large Straight <br />
+    <small>Sequence of 5</small>
+  </td>
+  <td>Score 40</td>
+  <td>{{ score.round.largeStraight }}</td>
+  <td>{{ score.total.largeStraight }}</td>
+  <td>
+    <ytz-score-button key="largeStraight" [value]="score.round.largeStraight"></ytz-score-button>
+  </td>
+</tr>

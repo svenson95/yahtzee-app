@@ -1,10 +1,9 @@
-
-.content {
+:host {
   margin: 10px;
 
   .hint {
+    display: block;
     color: darkgrey;
-    font-size: .9rem;
     text-align: center;
   }
 
@@ -13,13 +12,10 @@
     justify-content: center;
     margin-top: 20px;
     margin-bottom: 20px;
-
-    ytz-dice + ytz-dice {
-      margin-left: 20px;
-    }
+    gap: 20px;
 
     &:not(.is-playing) {
-      opacity: .2;
+      opacity: 0.2;
     }
   }
 
@@ -34,6 +30,6 @@
 
     ytz-table {
       display: flex;
-    };
+    }
   }
 }

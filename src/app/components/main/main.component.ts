@@ -1,24 +1,17 @@
 import { Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core';
 
-import { DiceService } from "../../services/dice.service";
-import { RoundService } from "../../services/round.service";
+import { DiceService } from '../../services/dice.service';
+import { RoundService } from '../../services/round.service';
 
 @Component({
-  selector: 'ytz-content',
-  templateUrl: './content.component.html',
-  styleUrls: ['./content.component.scss']
+  selector: 'main',
+  templateUrl: './main.component.html',
+  styleUrls: ['./main.component.scss'],
 })
-export class ContentComponent implements OnInit {
-
+export class MainComponent {
   @ViewChild('diceContainer') diceContainer: ElementRef;
 
-  constructor(
-    @Inject(DiceService) private dice: DiceService,
-    @Inject(RoundService) private round: RoundService
-  ) {}
-
-  ngOnInit(): void {
-  }
+  constructor(@Inject(DiceService) private dice: DiceService, @Inject(RoundService) private round: RoundService) {}
 
   get diceValues() {
     return [...this.dice.values];

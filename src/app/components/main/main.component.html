@@ -1,0 +1,13 @@
+<small class="hint">Click on a dice to hold it through the next roll</small>
+<div class="dice-container" #diceContainer [class.is-playing]="gameStarted">
+  <ytz-dice [diceNumber]="1" [value]="diceValues[0]"></ytz-dice>
+  <ytz-dice [diceNumber]="2" [value]="diceValues[1]"></ytz-dice>
+  <ytz-dice [diceNumber]="3" [value]="diceValues[2]"></ytz-dice>
+  <ytz-dice [diceNumber]="4" [value]="diceValues[3]"></ytz-dice>
+  <ytz-dice [diceNumber]="5" [value]="diceValues[4]"></ytz-dice>
+</div>
+<button class="btn start-game" (click)="onPlay()" *ngIf="!gameStarted">Play</button>
+<button class="btn roll-dice" (click)="onRoll()" *ngIf="gameStarted" [disabled]="tryCounter == 3">Roll</button>
+<div class="table-container">
+  <table [dices]="diceValues"></table>
+</div>
