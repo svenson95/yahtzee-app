@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Inject, Input } from '@angular/core';
+import { Component, Inject, Input } from '@angular/core';
 import { Dice } from 'src/app/models/dice';
 
 import { GameService } from '../../../services/game.service';
@@ -7,7 +7,6 @@ import { GameService } from '../../../services/game.service';
   selector: 'ytz-dice',
   templateUrl: './dice.component.html',
   styleUrls: ['./dice.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DiceComponent {
   @Input() dice: Dice;

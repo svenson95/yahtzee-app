@@ -2,6 +2,8 @@ import { Inject, Injectable } from '@angular/core';
 
 import { ScoreService } from './score.service';
 
+const INITIAL_HOLD_VALUES = [false, false, false, false, false];
+
 @Injectable({
   providedIn: 'root',
 })
@@ -10,7 +12,7 @@ export class GameService {
   public isRolling = false;
   public tryCounter = 0;
   public values: number[] = [1, 2, 3, 4, 5];
-  public holdValues: boolean[] = [false, false, false, false, false];
+  public holdValues: boolean[] = [...INITIAL_HOLD_VALUES];
 
   constructor(@Inject(ScoreService) private score: ScoreService) {}
 
@@ -61,5 +63,6 @@ export class GameService {
 
   resetTry() {
     this.tryCounter = 0;
+    this.holdValues = [...INITIAL_HOLD_VALUES];
   }
 }
