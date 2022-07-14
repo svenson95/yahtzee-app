@@ -6,7 +6,7 @@ import { ScoreTable } from '../models/score-table';
   providedIn: 'root',
 })
 export class ScoreService {
-  public addedPoints: string;
+  public points: string;
 
   public round = new ScoreTable();
   public total = new ScoreTable();
@@ -83,8 +83,8 @@ export class ScoreService {
   }
 
   savePoints(key: string): void {
-    if (this.addedPoints !== undefined) return;
-    this.addedPoints = key;
+    if (this.points !== undefined) return;
+    this.points = key;
 
     // Upper section
     if (key === 'aces') {

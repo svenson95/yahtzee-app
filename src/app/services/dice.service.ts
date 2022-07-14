@@ -1,17 +1,18 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 
 import { ScoreService } from './score.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class DiceService {
-  public gameStarted = false;
+export class GameService {
+  public isStarted = false;
   public isRolling = false;
+  public tryCounter = 0;
   public values: number[] = [1, 2, 3, 4, 5];
   public holdValues: boolean[] = [false, false, false, false, false];
 
-  constructor(private score: ScoreService) {}
+  constructor(@Inject(ScoreService) private score: ScoreService) {}
 
   getRandomInt(): number {
     const min = Math.ceil(1);
@@ -31,9 +32,14 @@ export class DiceService {
     setTimeout(() => {
       this.isRolling = false;
       this.updateDiceValues();
-      this.score.addedPoints = undefined;
+      this.score.points = undefined;
       this.score.calculateScores(this.values);
     }, 900);
+  }
+
+  hold(diceNumber: number) {
+    if (!this.isStarted) return;
+    this.holdValues[diceNumber - 1] = !this.holdValues[diceNumber - 1];
   }
 
   updateDiceValues(): void {
@@ -47,5 +53,13 @@ export class DiceService {
     const img = element.children[0];
     if (!this.holdValues[index]) img.classList.add('shake');
     setTimeout(() => img.classList.remove('shake'), 900);
+  }
+
+  nextTry() {
+    this.tryCounter += 1;
+  }
+
+  resetTry() {
+    this.tryCounter = 0;
   }
 }

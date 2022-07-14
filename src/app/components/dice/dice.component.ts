@@ -1,6 +1,6 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, Input } from '@angular/core';
 
-import { DiceService } from '../../services/dice.service';
+import { GameService } from '../../services/dice.service';
 
 @Component({
   selector: 'ytz-dice',
@@ -12,7 +12,7 @@ export class DiceComponent {
   @Input() diceNumber: number;
   @Input() value: number;
 
-  constructor(public dice: DiceService) {}
+  constructor(@Inject(GameService) public dice: GameService) {}
 
   get diceImage() {
     return 'assets/images/dice-' + this.value + '.png';
@@ -20,10 +20,5 @@ export class DiceComponent {
 
   get isHolding() {
     return this.dice.holdValues[this.diceNumber - 1];
-  }
-
-  holdDice(diceNumber: number) {
-    if (!this.dice.gameStarted) return;
-    this.dice.holdValues[diceNumber - 1] = !this.dice.holdValues[diceNumber - 1];
   }
 }

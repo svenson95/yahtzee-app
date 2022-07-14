@@ -4,11 +4,12 @@ import { CommonModule } from '@angular/common';
 
 import { AppComponent } from './app.component';
 
-import { MainModule } from './components/main/main.module';
+import { TableModule } from './components/table/table.module';
+import { DiceModule } from './components/dice/dice.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, CommonModule, MainModule],
+  imports: [CommonModule, BrowserModule, DiceModule, TableModule],
   providers: [],
   bootstrap: [AppComponent],
 })

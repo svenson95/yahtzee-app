@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, Input } from '@angular/core';
 
 import { ScoreService } from '../../services/score.service';
 
@@ -11,5 +11,5 @@ import { ScoreService } from '../../services/score.service';
 export class TableComponent {
   @Input() dices: number[];
 
-  constructor(public score: ScoreService) {}
+  constructor(@Inject(ScoreService) public score: ScoreService) {}
 }

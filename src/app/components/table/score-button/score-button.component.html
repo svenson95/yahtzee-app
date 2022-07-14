@@ -1,0 +1,8 @@
+<button
+  class="save-score-btn"
+  [class.selected]="score.points === key"
+  (click)="onSavePoints()"
+  [disabled]="score.points || value === 0 || disabled"
+>
+  Select
+</button>
