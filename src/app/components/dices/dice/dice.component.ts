@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, Inject, Input } from '@angular/core';
+import { Dice } from 'src/app/models/dice';
 
-import { GameService } from '../../services/dice.service';
+import { GameService } from '../../../services/game.service';
 
 @Component({
   selector: 'ytz-dice',
@@ -9,16 +10,15 @@ import { GameService } from '../../services/dice.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DiceComponent {
-  @Input() diceNumber: number;
-  @Input() value: number;
+  @Input() dice: Dice;
 
-  constructor(@Inject(GameService) public dice: GameService) {}
+  constructor(@Inject(GameService) public game: GameService) {}
 
   get diceImage() {
-    return 'assets/images/dice-' + this.value + '.png';
+    return 'assets/images/dice-' + this.dice.value + '.png';
   }
 
   get isHolding() {
-    return this.dice.holdValues[this.diceNumber - 1];
+    return this.game.holdValues[this.dice.number - 1];
   }
 }

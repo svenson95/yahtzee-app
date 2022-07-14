@@ -20,7 +20,7 @@ export class GameService {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-  rollDices(dices: Element) {
+  roll(dices: Element) {
     if (this.isRolling) return;
     this.isRolling = true;
 

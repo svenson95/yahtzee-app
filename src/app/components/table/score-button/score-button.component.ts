@@ -1,5 +1,5 @@
 import { Component, Inject, Input } from '@angular/core';
-import { GameService } from 'src/app/services/dice.service';
+import { GameService } from 'src/app/services/game.service';
 import { ScoreService } from 'src/app/services/score.service';
 
 @Component({
@@ -12,10 +12,10 @@ export class ScoreButtonComponent {
   @Input() value: number;
   @Input() disabled: boolean;
 
-  constructor(@Inject(ScoreService) public score: ScoreService, @Inject(GameService) private dice: GameService) {}
+  constructor(@Inject(ScoreService) public score: ScoreService, @Inject(GameService) private game: GameService) {}
 
   onSavePoints(): void {
     this.score.savePoints(this.key);
-    this.dice.resetTry();
+    this.game.resetTry();
   }
 }

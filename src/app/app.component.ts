@@ -1,5 +1,6 @@
 import { Component, ElementRef, Inject, ViewChild } from '@angular/core';
-import { GameService } from './services/dice.service';
+import { DicesComponent } from './components/dices/dices.component';
+import { GameService } from './services/game.service';
 
 @Component({
   selector: 'ytz-root',
@@ -7,30 +8,30 @@ import { GameService } from './services/dice.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  @ViewChild('diceContainer') diceContainer: ElementRef;
+  @ViewChild(DicesComponent, { read: ElementRef }) diceContainer: ElementRef;
 
-  constructor(@Inject(GameService) private dice: GameService) {}
-
-  get diceValues() {
-    return [...this.dice.values];
-  }
+  constructor(@Inject(GameService) private game: GameService) {}
 
   get gameStarted() {
-    return this.dice.isStarted;
+    return this.game.isStarted;
   }
 
   get tryCounter() {
-    return this.dice.tryCounter;
+    return this.game.tryCounter;
+  }
+
+  get diceValues() {
+    return [...this.game.values];
   }
 
   onPlay() {
-    this.dice.isStarted = true;
-    this.dice.nextTry();
-    this.dice.rollDices(this.diceContainer.nativeElement);
+    this.game.isStarted = true;
+    this.game.nextTry();
+    this.game.roll(this.diceContainer.nativeElement);
   }
 
   onRoll() {
-    this.dice.nextTry();
-    this.dice.rollDices(this.diceContainer.nativeElement);
+    this.game.nextTry();
+    this.game.roll(this.diceContainer.nativeElement);
   }
 }
